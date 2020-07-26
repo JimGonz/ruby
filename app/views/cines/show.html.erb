@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @cine.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @cine.phone %>
+  <strong>Image:</strong>
+  <%=image_tag @cine.url_image.thumb.url%>
+</p>
+
+<%= link_to 'Edit', edit_cine_path(@cine) %> |
+<%= link_to 'Back', cines_path %>
