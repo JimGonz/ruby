@@ -3,21 +3,126 @@
   <head>
     <title>CinemaApp</title>
     <%= csrf_meta_tags %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
   </head>
 
   <body>
-    
-    <div class="container ">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+      <a class="navbar-brand text-light" href="<%= billboard_index_path %>"><h1>Cinema</h1></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link text-light" href="<%= billboard_index_path %>">Cartelera <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="<%= cines_path %>">Cines</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="<%= movies_path %>">Peliculas</a>
+          </li>
+        </ul>
+        <span class="navbar-text">
+        <% if user_signed_in? %>
+              <a class="nav-link text-light" href="<%= destroy_user_session_path %>" data-method="delete"><%= current_user.email %></a>
+              <% else %>
+              <a class="nav-link text-light" href="<%= new_user_session_path %>">Iniciar Sesion</a>
+              <%end %>
+            </span>
+        </span>
+      </div>
+    </nav>
+
+
+   
+
+   <div class="container">
+    <div>
+     <p class="notice"><%= notice %></p>
+     <p class="alert"><%= alert %></p>
+   </div>
     <%= yield %>
+ </div>
 
-    </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<footer class="pt-5">
+        <div class="container-fluid text-light bg-dark">
+            <div class="row pt-5 pb-3">
+                <div class="col-md-10 ">
+                    <div class="row">
+
+                        <div class="col-md-3 d-flex justify-content-center">
+                            <ul class="list-unstyled text-center ">
+                                <li>
+                                    <h5>Contact Us</h5>
+                                    <hr>
+                                </li>
+                                <li>
+                                Jimmy Gonzalez
+                                </li>
+                                <li>+505 58363178</li>
+                                <li>jimmygonzalez265@gmail.com</li>
+                                <li>Managua</li>
+                                <li>Nicaragua</li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-2">
+                            <ul class="list-unstyled text-center">
+                                <li>
+                                    <h5>Navegation</h5>
+                                    <hr>
+                                </li>
+                                <li><a class="text-light" href="<%= billboard_index_path %>">Cartelera</a></li>
+                                <li> <a class="text-light" href="<%= cines_path %>">Cines</a></li>
+                                <li><a href="<%= movies_path %>" class="text-light">Peliculas</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-2">
+                            <ul class="list-unstyled text-center">
+                                <li>
+                                    <h5>Meta</h5>
+                                    <hr>
+                                </li>
+
+                                <li><a class="text-light" href="">Terms</a></li>
+                                <li> <a class="text-light" href="">Services</a></li>
+                                <li><a class="text-light" href="">Licenced</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-4">
+                            <h5 class="text-center">Abaut</h5>
+                            <hr>
+                            <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam, et modi nobis magnam id dignissimos vitae sit ratione optio repellat numquam esse. Perferendis accusantium exercitationem quidem magnam. Perferendis
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 d-flex align-items-center">
+
+                    <!-- Content -->
+
+                    <img class="mr-2" src="<%= asset_path('facebook.png') %>" alt="">
+                    <img class="mr-2" src="<%= asset_path('twitter.png') %>" alt="">
+                    <img src="<%= asset_path('instagram.png') %>" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   </body>
 </html>

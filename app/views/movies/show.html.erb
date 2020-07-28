@@ -1,0 +1,28 @@
+<div class="row p-5">
+
+   <div class="col-md-4">
+      <%=image_tag @movie.url_image.url, class: 'img-tr3'%>
+   </div>
+
+    <div class="col-md-5">
+      <p>
+      Titulo de la pelicula:
+      <strong><%= @movie.name %></strong>
+    </p>
+
+    <p>
+    Duracion:
+      <strong><%= @movie.duration.strftime("%H:%M") %></strong>
+    </p>
+
+    <p>
+    Fecha de estreno:
+      <strong><%= @movie.date_time_movie.strftime("%d-%m-%Y Hora: %H:%M") %></strong>
+    </p>
+  </div>
+
+    
+</div>
+
+<%= link_to 'Editar', edit_movie_path(@movie) ,class:'btn btn-info text-light' %> |
+<%= link_to 'Retroceder', movies_path, class: 'btn btn-secondary text-light' %>

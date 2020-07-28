@@ -1,0 +1,15 @@
+<section class="container-fluid d-flex justify-content-center align-items-center" >
+  
+    <div class="container pt-5">
+       <div class="row justify-content-center">
+     
+         <div class="col-md-7">
+            <h1>Nueva Pelicula</h1>
+        </div>
+      </div>
+   </div>
+</section>
+
+<%= render 'form', movie: @movie %>
+
+<%= link_to 'Retroceder', movies_path ,class:'btn btn-secondary text-light' %>

@@ -11,18 +11,44 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :cine_name %>
-  </div>
+  <section class="container-fluid d-flex justify-content-center align-items-center" >
+  
+    <div class="container">
+     <div class="row justify-content-center">
+     
+      <div class="col-md-7">
+        <hr>
+        <form>
+          <div class="row form-group">
+             <%= form.label :'Nombre del cine', class: 'col-form-label col-md-3' %>
+          <div class="col-md-8">
+            <%= form.text_field :name, id: :cine_name, class: 'form-control' %>
+          </div>
+        </div>
 
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone, id: :cine_phone %>
-    <%= form.file_field :url_image, id: :cine_url_image %>
-  </div>
+        <div class="row form-group">
+          <%= form.label :'Telefono',class: 'col-form-label col-md-3' %>
+          <div class="col-md-8">
+          <%= form.text_field :phone, id: :cine_phone , class: 'form-control'%>
+          
+          </div>
+        </div>
+  
+        <div class="row form-group">
+          <%= form.label :'Selecciona el logo', class: 'col-form-label col-md-3' %>
+          <div class="col-md-8">
+            <%= form.file_field :url_image, id: :cine_url_image %>  
+            </div>
+        </div>
+          
+        <div class="actions">
+          <%= form.submit%>
+        </div>
+        </form>
 
-  <div class="actions">
-    <%= form.submit, class: 'btn btn-primary' %>
+      </div>
   </div>
+</div>
+</section>
+
 <% end %>

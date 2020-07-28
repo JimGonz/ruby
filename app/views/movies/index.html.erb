@@ -1,0 +1,34 @@
+<h1>Peliculas</h1>
+
+<div class="table-responsive-md">
+<table class="table text-center ">
+  <thead class="bg-dark text-light">
+    <tr>
+      <th>Portada</th>
+      <th>Titulo de la pelicula</th>
+      <th>Duracion</th>
+      <th>Fecha de Estreno</th>
+      <th>Acciones</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody class="font-weight-bold">
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= image_tag movie.url_image.url ,class: 'img-tr' %></td>
+        <td><%= movie.name %></td>
+        <td><%= movie.duration.strftime("%H:%M") %></td>
+        <td><%= movie.date_time_movie.strftime("%d-%m-%Y Hora: %H:%M") %></td>
+        <td>
+           <%= link_to 'Mostrar', movie, class:'btn btn-light' %>
+        <%= link_to 'Editar', edit_movie_path(movie),class:'btn btn-light' %>
+        <%= link_to 'Eliminar', movie, method: :delete, data: { confirm: 'Esta seguro de eliminar?' },class:'btn btn-light' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+
+<%= link_to 'Nueva Pelicula', new_movie_path, class:'mb-5 btn btn-primary text-light' %>

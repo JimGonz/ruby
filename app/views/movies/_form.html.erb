@@ -1,0 +1,67 @@
+<%= form_with(model: movie, local: true) do |form| %>
+  <% if movie.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+
+      <ul>
+      <% movie.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <section class="container-fluid d-flex justify-content-center align-items-center">
+    
+    <div class="container">
+      <div class="row justify-content-center">
+            <div class="col-md-7">
+      <hr>
+       <form>
+         <div class="row form-group">
+            <%= form.label :Titulo, class: 'col-form-label col-md-3' %>
+             <div class="col-md-8">
+                <%= form.text_field :name, id: :movie_name, class: 'form-control' %>
+             </div>
+          </div>
+
+          <div class="row form-group">
+            <%= form.label :duracion, class: 'col-form-label col-md-3'%>
+             <div class="col-md-8">
+                  <%= form.time_select :duration, id: :movie_duration, class: 'form-control' %>
+             </div>
+          </div>
+
+          <div class="row form-group">
+            <%= form.label :date_time_movie,  class: 'col-form-label col-md-3' %>
+            <div class="col-md-8">
+               <%= form.datetime_select :date_time_movie, id: :movie_date_time_movie, class: 'form-control' %>
+            </div>
+          </div>
+
+        <div class="row form-group">
+           <%= form.label :cine_id , class: 'col-form-label col-md-3' %>
+         <div class="col-md-8">
+             <%= select("movie", "cine_id", @cines, { include_blank: true }, class: 'form-control')%>
+         </div>
+        </div>
+
+        <div class="row form-group">
+         <%= form.label :'Portada', class: 'col-form-label col-md-3' %>
+          <div class="col-md-8">
+           <%= form.file_field :url_image, id: :movie_url_image %>
+          </div>
+        </div>
+
+          <div class="actions">
+            <%= form.submit %>
+          </div>
+        </form>  
+     </div>
+      <div>
+
+   </div>
+  </section>
+
+
+<% end %>

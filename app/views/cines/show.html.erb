@@ -1,16 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class="row p-5">
+ 
+ <div class="col-md-4">
+   <%=image_tag @cine.url_image.url , class: 'img-tr3'%>
+ </div>
+  
+  <div class="col-md-3">
+      <p>
+      Nombre del Cine:
+      <strong><h4><%= @cine.name %></h4></strong>    
+    </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @cine.name %>
-</p>
+    <p>
+     Telefono:
+      <strong> <h4> <%= @cine.phone %></h4></strong>
+    </p>
+  </div>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @cine.phone %>
-  <strong>Image:</strong>
-  <%=image_tag @cine.url_image.thumb.url%>
-</p>
+</div>
 
-<%= link_to 'Edit', edit_cine_path(@cine) %> |
-<%= link_to 'Back', cines_path %>
+<%= link_to 'Editar', edit_cine_path(@cine) , class:'btn btn-info text-light'%> |
+<%= link_to 'Retroceder', cines_path, class:'btn btn-secondary text-light' %>

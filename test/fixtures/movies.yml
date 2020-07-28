@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  duration: 2020-07-26 19:43:38
+  date_time_movie: 2020-07-26 19:43:38
+
+two:
+  name: MyString
+  duration: 2020-07-26 19:43:38
+  date_time_movie: 2020-07-26 19:43:38
